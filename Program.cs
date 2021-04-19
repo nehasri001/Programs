@@ -4,46 +4,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exceptions
+
+namespace ConsoleApplication2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // single dimension array
-            int[] arr = new int[5]  { 111,222,333,444,555};
+            int[] array = new int[5] { 1, 2, 3, 4, 5 };
 
-            for(int i = 0; i < arr.Length; i ++)
+            for (int i = 0; i < 6; i++)
             {
-                Console.WriteLine(arr[i]);
-            }
 
-            // matrix
-            int[,] arr2 = new int[3, 3] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
-
-            for( int j = 0; j < arr.Length; j ++)
-            {
-                for( int k = 0; k < arr.Length; k ++)
+                //code prone to error is written in try block
+                try
                 {
-                    Console.WriteLine(arr[k]);
+                    Console.WriteLine(array[i]);
+                }
+
+
+                //code to handle the exception is written in catch block
+                catch (Exception e)
+                {
+                    Console.WriteLine("Size of array exceeded");
                 }
             }
 
-            // jagged array
-            int[][] arr3 = new int[3][];
+            Console.ReadLine();
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int divisor, dividend;
 
-            arr3[0] = new int[3] { 1, 2, 3 };
-            arr3[1] = new int[4] { 11, 22, 33, 44 };
-            arr3[2] = new int[5] { 111, 222, 333, 444, 555 };
-            
-            for(int i = 0; i < arr3.Length; i ++)
+            divisor = 0;
+            dividend = 20;
+
+            try
             {
-                for (int j = 0; j < arr3[i].Length; j++)
-                {
-                    Console.WriteLine(arr3[i]);
-                }
+                Console.WriteLine(dividend / divisor);
             }
+            catch (Exception e)
+            {
+                Console.WriteLine("Division by zero not possible");
+            }
+
             Console.ReadLine();
         }
     }
 }
+
